@@ -1,6 +1,5 @@
 import 'package:ads_n_url/models/image_list_view_model.dart';
 import 'package:ads_n_url/screens/post_page.dart';
-import 'package:ads_n_url/widgets/floating_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -32,12 +31,6 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            brightness: Brightness.dark,
-            backgroundColor: Colors.white,
-            title: FloatingAppBar(_currentIndex),
-          ),
           body: PageView.builder(
               controller: _pageController,
               itemCount: 2,
@@ -52,8 +45,8 @@ class _HomePageState extends State<HomePage> {
                     return ImageListViewModel();
                   },
                   child: index == 0
-                      ? PostPage('https://www.reddit.com/hot.json')
-                      : PostPage('https://www.reddit.com/new.json'),
+                      ? PostPage('https://www.reddit.com/hot.json', 0)
+                      : PostPage('https://www.reddit.com/new.json', 1),
                 );
               }),
           bottomNavigationBar: BottomNavigationBar(
