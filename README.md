@@ -1,15 +1,17 @@
 # Newtastic
 
-Flutter App for New and Hot posts using reddit api
-[Hot Posts](https://www.reddit.com/hot.json)
+Flutter App for New and Hot posts using reddit api <br>
+[Hot Posts](https://www.reddit.com/hot.json)<br>
 [New Posts](https://www.reddit.com/new.json)
 
-##App Screenshots
-![Hot Posts](images/hot_posts.png)![New Posts](images/new_post.png)![Search](images/search.png)
 
-###Download the app
-https://drive.google.com/open?id=16FLldroL_iFJ4ua-6MgNxGZ3H-4RKqTu
+## App Screenshots
 
+<img src="images/hot_posts.png" width="100" style="margin:20px;"><img src="images/new_post.png" width="100" style="margin:20px;"><img src="images/search.png" width="100" style="margin:20px;">
+
+
+### Download the app
+https://drive.google.com/file/d/1I4b0nLB0Jy8nPC5EbvMdkz9jOE2oFluR/view?usp=sharing
 
 ## Getting Started
 
