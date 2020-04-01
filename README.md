@@ -11,7 +11,7 @@ Flutter App for New and Hot posts using reddit api <br>
 
 
 ### Download the app
-https://drive.google.com/file/d/1I4b0nLB0Jy8nPC5EbvMdkz9jOE2oFluR/view?usp=sharing
+https://drive.google.com/open?id=1V6Hpud2XEWc2qNwUhLXrANQMa19ZsAqK
 
 ## Getting Started
 
