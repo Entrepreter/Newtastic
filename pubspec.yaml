@@ -26,6 +26,9 @@ dependencies:
   http: ^0.12.0+4
   floating_search_bar: ^0.3.0
   provider:
+  sqflite:
+  path_provider:
+  cached_network_image:
 
 
 dev_dependencies:

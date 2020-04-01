@@ -45,8 +45,8 @@ class _HomePageState extends State<HomePage> {
                     return ImageListViewModel();
                   },
                   child: index == 0
-                      ? PostPage('https://www.reddit.com/hot.json', 0)
-                      : PostPage('https://www.reddit.com/new.json', 1),
+                      ? PostPage('https://www.reddit.com/hot.json', 0, true)
+                      : PostPage('https://www.reddit.com/new.json', 1, false),
                 );
               }),
           bottomNavigationBar: BottomNavigationBar(

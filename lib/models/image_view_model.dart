@@ -19,4 +19,10 @@ class ImageViewModel {
     s = '${s[0].toUpperCase()}${s.substring(1)}';
     return s;
   }
+
+  //images are actually post
+  //I'll update them later
+  String getPostId() {
+    return imageModel.postID;
+  }
 }

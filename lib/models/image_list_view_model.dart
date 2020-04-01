@@ -5,10 +5,9 @@ import 'package:flutter/cupertino.dart';
 class ImageListViewModel extends ChangeNotifier {
   List<ImageViewModel> posts = List();
 
-  Future fetchPosts(String hostUrl) async {
-    final results = await WebService().fetchStories(hostUrl);
+  Future fetchPosts(String hostUrl, bool isHotUrl) async {
+    final results = await WebService().fetchStories(hostUrl, isHotUrl);
     this.posts = results.map((item) => ImageViewModel(item)).toList();
-    print(this.posts);
     notifyListeners();
   }
 }

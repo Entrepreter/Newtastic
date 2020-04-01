@@ -1,13 +1,15 @@
 import 'package:ads_n_url/models/image_list_view_model.dart';
 import 'package:ads_n_url/models/image_view_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class PostPage extends StatefulWidget {
   final String url;
   final int currentIndex;
+  final bool isHotUrl;
 
-  PostPage(this.url, this.currentIndex);
+  PostPage(this.url, this.currentIndex, this.isHotUrl);
 
   @override
   _PostPageState createState() => _PostPageState();
@@ -35,7 +37,7 @@ class _PostPageState extends State<PostPage>
     super.build(context);
     final postsModel = Provider.of<ImageListViewModel>(context);
     if (counter == 0) {
-      postsModel.fetchPosts(widget.url);
+      postsModel.fetchPosts(widget.url, widget.isHotUrl);
       counter++;
     }
     return postsModel.posts.length > 0
@@ -65,6 +67,7 @@ class _PostPageState extends State<PostPage>
                               ),
                               title: Text(searchResult[index].getImageTitle()),
                               subtitle: Text(searchResult[index].getImageDes()),
+                              trailing: Text(searchResult[index].getPostId()),
                             );
                           })
                       : ListView.builder(
@@ -72,20 +75,35 @@ class _PostPageState extends State<PostPage>
                           itemCount: postsModel.posts.length,
                           itemBuilder: (context, index) {
                             posts = postsModel.posts;
+                            print("instance" + posts[0].getImageTitle());
                             return ListTile(
                               leading: Container(
                                 width: 40,
                                 height: 40,
-                                child: Image.network(
-                                  Uri.parse(posts[index].getImageUrl())
-                                          .isAbsolute
-                                      ? posts[index].getImageUrl()
-                                      : "https://via.placeholder.com/150",
+                                child: CachedNetworkImage(
+                                  imageUrl:
+                                      Uri.parse(posts[index].getImageUrl())
+                                              .isAbsolute
+                                          ? posts[index].getImageUrl()
+                                          : "https://via.placeholder.com/150",
+                                  placeholder: (context, url) => Container(
+                                      padding: EdgeInsets.all(4.0),
+                                      child: new CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      new Icon(Icons.error),
                                   fit: BoxFit.cover,
                                 ),
+//                                child: Image.network(
+//                                  Uri.parse(posts[index].getImageUrl())
+//                                          .isAbsolute
+//                                      ? posts[index].getImageUrl()
+//                                      : "https://via.placeholder.com/150",
+//                                  fit: BoxFit.cover,
+//                                ),
                               ),
                               title: Text(posts[index].getImageTitle()),
                               subtitle: Text(posts[index].getImageDes()),
+//                              trailing: Text(posts[index].getPostId()), //no need to show post id
                             );
                           }),
                   onRefresh: refreshTheContent,
